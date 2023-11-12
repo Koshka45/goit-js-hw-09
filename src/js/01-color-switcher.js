@@ -10,14 +10,14 @@ let timerId = null;
 
 buttonStart.addEventListener('click', () => {
   buttonStart.disabled = true;
-
+  buttonStop.disabled = false;
   timerId = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
-    buttonStart.disabled = false;
   }, 1000);
 });
 
 buttonStop.addEventListener('click', () => {
   clearInterval(timerId);
-  console.log(`Turn of with id ${timerId} has stopped color`);
+  buttonStop.disabled = true;
+  buttonStart.disabled = false;
 });
